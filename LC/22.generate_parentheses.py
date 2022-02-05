@@ -23,10 +23,24 @@ class Solution:
 
         return list(set(wfp[n]))  # TODO: this is shit
 
-    def generate_parentheses_bt(self, n: int) -> list[str]:
-        return
+    # TODO: Catalan numbers???
+    def generate_parentheses_v2(self, n: int) -> list[str]:
+        def iter(s: str, left: int, right: int):
+            if left + right == 2*n:
+                res.append(s)
+                return
+
+            if left < n:
+                iter(s+'(', left+1, right)
+
+            if right < left:
+                iter(s+')', left, right+1)
+
+        res = []
+        iter("", 0, 0)
+        return res
 
 
-sol = Solution().generate_parentheses(5)
+sol = Solution().generate_parentheses_v2(5)
 print(sol)
 print(len(sol), len(set(sol)))
