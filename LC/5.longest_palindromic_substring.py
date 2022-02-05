@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class Solution:
 
     # Time: O(n^2) -- Space: O(n^2)
