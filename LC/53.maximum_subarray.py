@@ -3,7 +3,7 @@ import math
 
 class Solution:
     def max_subarray(self, nums: list[int]) -> int:
-        return self.find_max(nums, 0, len(nums))
+        return self.find_max_kadane(nums, 0, len(nums))
 
     def find_max_dp(self, nums: list[int], lo: int, hi: int) -> int:
         if lo >= hi:
@@ -39,6 +39,6 @@ class Solution:
 
 
 nums1 = [5, 4, -1, 7, 8]
-nums2 = [-2,1,-3,4,-1,2,1,-5,4]
+nums2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 nums3 = [-1]
 print(Solution().find_max_kadane(nums1, 0, len(nums1)))
