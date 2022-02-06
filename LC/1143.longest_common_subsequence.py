@@ -86,8 +86,8 @@ class Solution:
     # Instead of creating a new array every col, swap prev with current! Reuse garbage!
     def longest_common_subsequence_dp_best(self, text1: str, text2: str) -> int:
 
-        col_ahead = [0] * (len(text1) + 1)
-        col_curr = [0] * (len(text1) + 1)
+        col_ahead = [0] * (len(text1)+1)
+        col_curr = [0] * (len(text1)+1)
         for col in reversed(range(len(text2))):
             for row in reversed(range(len(text1))):
                 if text1[row] == text2[col]:
