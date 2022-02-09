@@ -18,9 +18,9 @@ class Solution:
                 else:
                     m[i][j] = m[i + 1][j - 1] and s[i] == s[j]
 
-                if m[i][j] and j - i + 1 > max_len:
-                    max_pal = s[i:j + 1]
-                    max_len = j - i + 1
+                if m[i][j] and j-i+1 > max_len:
+                    max_pal = s[i:j+1]
+                    max_len = j-i+1
 
         return max_pal
 
