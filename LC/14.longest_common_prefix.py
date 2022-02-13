@@ -12,7 +12,27 @@ class Solution:
 
         return strs[0][:min_len - 1]
 
-    # TODO: for practice, implement divide-and-conquer AND binary search
+    # TODO: for practice, implement AND binary search
+    # O(mlogn) space: logn recursive calls and each stores m
+    def d_n_c(self, strs: list[str]) -> str:
+
+        def lcp(l: int, r: int) -> str:
+            if l == r:
+                return strs[l]
+
+            mid = (l + r) // 2
+            left = lcp(l, mid)
+            right = lcp(mid+1, r)
+            return common_prefix(left, right)
+
+        def common_prefix(str1: str, str2: str) -> str:
+            for i in range(min(len(str1), len(str2))):
+                if str1[i] != str2[i]:
+                    return str1[:i]
+
+            return str1[:min(len(str1), len(str2))]
+
+        return lcp(0, len(strs)-1)
 
 
-Solution().longest_common_prefix(["hello", "he", "hes"])
+print(Solution().d_n_c(["hello", "he", "hes"]))
