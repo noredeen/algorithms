@@ -5,7 +5,7 @@ class Solution:
     def generate_parentheses_dp(self, n: int) -> list[str]:
         # wfp[n] = "(wfp[n-1])", "wfp[j]wfp[n-j]" for j = 1, ..., n-1
 
-        wfp = [[] for i in range(n + 1)]
+        wfp = [[] for _ in range(n + 1)]
         wfp[0] = [""]
         for i in range(1, n+1):
             opts = []
@@ -21,6 +21,7 @@ class Solution:
         return wfp[n]
 
     # TODO: Catalan numbers???
+    # keep adding left and right parens as long as the string stays well-formed
     def generate_parentheses_v2(self, n: int) -> list[str]:
         def iter(s: str, left: int, right: int):
             if left + right == 2*n:

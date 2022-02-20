@@ -1,6 +1,3 @@
-import pytest
-
-
 class Solution:
 
     # Left edge does the "seeking"
@@ -22,7 +19,8 @@ class Solution:
 
         return max_length
 
-    # Right edge does the "seeking"
+    # Right edge does the "seeking". When right hits dupe, left catches
+    # up to the first occ of the dupe (undoing the counts), restart seeking from there
     # O(2n) = O(n) time. Worst case, every char will be viewed twice
     # TODO: Space ???
     def more_organized(self, s: str) -> int:

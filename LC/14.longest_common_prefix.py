@@ -12,7 +12,7 @@ class Solution:
 
         return strs[0][:min_len - 1]
 
-    # TODO: for practice, implement AND binary search
+    # TODO: for practice, implement binary search
     # O(mlogn) space: logn recursive calls and each stores m
     def d_n_c(self, strs: list[str]) -> str:
 
